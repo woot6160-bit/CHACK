@@ -1,0 +1,6 @@
+{
+  "name": "ART ROLL — สมุดเช็กชื่อห้องศิลปะ",
+  "description": "ระบบเช็กชื่อ จัดการคะแนน และรายงานผลการเรียนการสอนห้องศิลปะ พร้อมธีม Starry Night และระบบบันทึกข้อมูลเรียลไทม์",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

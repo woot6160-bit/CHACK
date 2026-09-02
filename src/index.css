@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --glass-bg: #03150e;
+    --glass-text: #fcfbf7;
+    --glass-surface: rgba(4, 30, 20, 0.6);
+    --glass-surface-subtle: rgba(255, 255, 255, 0.035);
+    --glass-border: rgba(212, 175, 55, 0.22);
+    --glass-border-subtle: rgba(255, 255, 255, 0.08);
+    --glass-accent: #10b981;
+    --glass-accent-glow: rgba(16, 185, 129, 0.35);
+    --glass-gold: #d4af37;
+    --glass-gold-glow: rgba(212, 175, 55, 0.35);
+    --glass-emerald: #059669;
+  }
+
+  body {
+    background-color: #02130c;
+    color: #fcfbf7;
+    font-family: 'Prompt', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Luxury Gold & Emerald Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(2, 19, 12, 0.85);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.5), rgba(16, 185, 129, 0.5));
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.8), rgba(16, 185, 129, 0.8));
+  }
+}
+
+/* Emerald, White & Gold Luxury Backdrop */
+.frosted-bg, .starry-bg {
+  background-color: #02130c;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 15% 85%, rgba(16, 185, 129, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(4, 33, 22, 0.7) 0%, #02130c 100%);
+  background-attachment: fixed;
+}
+
+/* Luxury Emerald-White-Gold Glass Card standard */
+.starry-canvas-card, .frosted-card {
+  background: rgba(4, 30, 20, 0.65);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.starry-card-glow:hover, .frosted-card-glow:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(6, 40, 28, 0.75);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.85), 0 0 28px -4px rgba(212, 175, 55, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Luxury Sub-card / Element container */
+.frosted-glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+/* Luxury Input fields & selectors */
+.frosted-input {
+  background: rgba(2, 18, 11, 0.6) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.22) !important;
+  color: #fcfbf7 !important;
+}
+.frosted-input:focus {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+}
+
+/* Micro-interaction & Tactile Button Classes */
+.luxury-btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f3d375 50%, #b8860b 100%);
+  color: #02130c;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.luxury-btn-gold:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
+  transform: translateY(-1px);
+}
+.luxury-btn-gold:active {
+  transform: scale(0.95);
+}
+
+.luxury-btn-emerald {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.luxury-btn-emerald:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
+}
+.luxury-btn-emerald:active {
+  transform: scale(0.95);
+}
+
+/* Shimmer overlay animation on cards */
+.luxury-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.luxury-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.08) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerSweep 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  30% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Print Friendly Styles for A4 Portrait */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm;
+    margin: 0 auto;
+    background: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-after: always;
+  }
+}
